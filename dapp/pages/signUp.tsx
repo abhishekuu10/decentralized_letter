@@ -3,9 +3,24 @@ import type { NextPage } from 'next';
 import Layout from '../components/Layout';
 import Input from "../components/Input";
 import Button from '../components/Button';
+import jsPDF from "jspdf";
 
 const SignUp: NextPage = () => {
     let [data, setData] = useState({});
+    const pdfGenerate = () => {
+        var doc = new jsPDF('landscape', 'px', 'a4', 'false');
+        doc.addPage()
+        doc.setFont('Helvertica', 'bold')
+        doc.text(66, 68, 'Name')
+        doc.text(60, 80, 'Email')
+        doc.text(60, 100, 'Mob. No.')
+        doc.setFont('Helvertica', 'Normal')
+        doc.text(100, 60, 'ABC')
+        doc.text(100, 80, 'abc@gmail.com')
+
+        doc.save('a.pdf')
+    }
+
     const getCertificate = async (e: any) => {
         const Ethereum = typeof window !== 'undefined' && (window as any).ethereum;
         if (!Ethereum) {
@@ -50,6 +65,7 @@ const SignUp: NextPage = () => {
                 </div>
                 <div className='m-8 p-4'>
                     <Button label='Apply For Certificate' onClick={getCertificate} />
+                    <Button label="Generate PDF" onClick={pdfGenerate} marginTop={5} />
                 </div></div>
         </Layout>
 
