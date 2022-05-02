@@ -1,13 +1,11 @@
 type Props = {
     label: string
     onClick: () => void
-    marginTop: number
 }
-const Button: React.FC<Props> = ({ label, onClick, marginTop }) => {
+const Button: React.FC<Props> = ({ label, onClick }) => {
     return (
         <button
-            className={marginTop ? "rounded-xl bg-blue-400 py-2 px-6 text-white mt-8" :
-                "rounded-xl bg-blue-400 py-2 px-6 text-white"}
+            className="rounded-xl bg-blue-400 py-2 px-6 text-white mb-2"
             onClick={onClick}
         > {label}
         </button >
