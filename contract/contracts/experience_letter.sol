@@ -29,7 +29,7 @@ contract experience {
     uint256 index=0;
 
     // Add student function
-    function addStudent(
+    function experienceLetter(
          string _name,
         uint128 _experince,
         string _joining_day,
